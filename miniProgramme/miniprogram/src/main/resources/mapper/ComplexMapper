@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.miniprogram.mapper.ComplexMapper">
+    <select id="getFollowList">
+    select user_avater,user_name,user_gender
+    from user
+    join
+    (
+    SELECT followed_id
+    FROM follow
+    where follow_id=#{follow_id};
+    SELECT
+     user_avater,
+     user_name,
+     user_gender
+    FORM user,follow
+    WHERE user.user_id=follow.follow_id
+    )Follow
+    on user.user_id=Follow.followed_id
+    </select>
+</mapper>
