@@ -2,9 +2,9 @@ package com.example.miniprogram.service.Impl;
 
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.entity.UserExample;
+import com.example.miniprogram.mapper.ComplexMapper;
 import com.example.miniprogram.mapper.UserMapper;
 import com.example.miniprogram.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,6 +14,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private ComplexMapper complexMapper;
     @Override
     public List<User> selectAllUsers(){
         UserExample example = new UserExample();
@@ -23,22 +25,36 @@ public class UserServiceImpl implements UserService {
         return users;
     }
     @Override
-    public String genderById(){
-        long id= 1;
-        UserExample example=new UserExample();
-        example.createCriteria().andUserIdEqualTo(id);
-        List<User> users=userMapper.selectByExample(example);
-        System.out.println(users.get(0).getUserGender());
-        return users.get(0).getUserGender();
+    public String genderById(long id){
+//        long id= 1;
+//        UserExample example=new UserExample();
+//        example.createCriteria().andUserIdEqualTo(id);
+//        List<User> users=userMapper.selectByExample(example);
+//        System.out.println(users.get(0).getUserGender());
+//        return users.get(0).getUserGender();
+        return "";
     }
     @Override
-    public User selectUserById(long id){
-        User user=userMapper.selectByPrimaryKey(id);
-        System.out.println(user.getUserId());
-        return  user;
+    public int selectUserById(long id){
+        if(userMapper.selectByPrimaryKey(id)==null)
+            return 0;
+        else
+            return  1;
+//        System.out.println(user.getUserId());
+
     }
     @Override
     public int updateUser(User user){
         return userMapper.updateByPrimaryKeySelective(user);
+    }
+    @Override
+    public User selectContact(String id){
+        //System.out.println(complexMapper.selectContact(id).getUserPhone());
+         String phone=complexMapper.selectPhone(id);
+         String wx=complexMapper.selectWx(id);
+         User user=new User();
+        user.setUserWx(wx);
+        user.setUserPhone(phone);
+        return user;
     }
 }
