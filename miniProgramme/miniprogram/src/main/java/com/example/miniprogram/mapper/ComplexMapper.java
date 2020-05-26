@@ -1,6 +1,7 @@
 package com.example.miniprogram.mapper;
 
 import com.example.miniprogram.entity.AppointmentPlus;
+import com.example.miniprogram.entity.Dynamic;
 import com.example.miniprogram.entity.DynamicPlus;
 import com.example.miniprogram.entity.User;
 import org.apache.ibatis.annotations.Param;
@@ -13,4 +14,5 @@ public interface ComplexMapper {
      String selectPhone(String id);
      List<AppointmentPlus> selectReceiveApt(long id);
      List<AppointmentPlus> selectSendApt(long id);
+     Dynamic selectDynamicById(long id);
 }

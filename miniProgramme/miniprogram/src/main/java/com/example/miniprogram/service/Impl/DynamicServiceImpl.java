@@ -68,7 +68,7 @@ public class DynamicServiceImpl implements DynamicService {
     }
     @Override
     public Dynamic selectDynamicById(long id){
-        return dynamicMapper.selectByPrimaryKey(id);
+        return complexMapper.selectDynamicById(id);
     }
     @Override
     public int insertDynamic(JSONObject object,String id){

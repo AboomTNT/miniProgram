@@ -57,8 +57,8 @@ public class DynamicController {
     }
     //通过ID查询动态
     @GetMapping("/selectDynamicById")
-    public Dynamic selectDynamicById(long id){
-        return dynamicService.selectDynamicById(id);
+    public String selectDynamicById(long id){
+        return JSON.toJSONString(dynamicService.selectDynamicById(id));
     }
     //插入动态
     @GetMapping("/insertDynamic")

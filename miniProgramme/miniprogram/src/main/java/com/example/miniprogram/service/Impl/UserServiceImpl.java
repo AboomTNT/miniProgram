@@ -35,13 +35,8 @@ public class UserServiceImpl implements UserService {
         return "";
     }
     @Override
-    public int selectUserById(long id){
-        if(userMapper.selectByPrimaryKey(id)==null)
-            return 0;
-        else
-            return  1;
-//        System.out.println(user.getUserId());
-
+    public User selectUserInfoById(long id){
+        return userMapper.selectByPrimaryKey(id);
     }
     @Override
     public int updateUser(User user){
