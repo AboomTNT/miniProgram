@@ -1,6 +1,8 @@
 package com.example.miniprogram.service;
 
 public interface FollowService {
-    public int insertFollow(long id1,long id2);
-    public int deleteFollow(long id1,long id2);
+    int insertFollow(long id1,long id2);
+    int deleteFollow(long id1,long id2);
+    int selectFollowById(long id);
+    int selectFollowedById(long id);
 }

@@ -26,15 +26,9 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public String genderById(long id){
-//        long id= 1;
-//        UserExample example=new UserExample();
-//        example.createCriteria().andUserIdEqualTo(id);
-//        List<User> users=userMapper.selectByExample(example);
-//        System.out.println(users.get(0).getUserGender());
-//        return users.get(0).getUserGender();
         return "";
     }
-    @Override
+
     public User selectUserInfoById(long id){
         return userMapper.selectByPrimaryKey(id);
     }

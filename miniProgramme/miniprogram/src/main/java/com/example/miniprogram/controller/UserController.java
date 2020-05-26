@@ -5,6 +5,7 @@ import com.example.miniprogram.entity.Dynamic;
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.entity.Works;
 import com.example.miniprogram.service.DynamicService;
+import com.example.miniprogram.service.FollowService;
 import com.example.miniprogram.service.UserService;
 import com.example.miniprogram.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class UserController {
 
     @Autowired
     private WorkService workService;
+
+    @Autowired
+    private FollowService followService;
     @GetMapping("/login")
     public String login(HttpServletRequest request,String id){
         String sessionId = request.getSession().getId();
@@ -43,16 +47,32 @@ public class UserController {
         return  JSON.toJSONString(userService.selectContact(id));
 
     }
+    @GetMapping("/selectLoginUser")
+    public String selectLoginUser(HttpServletRequest request){
+        String id = request.getSession().getAttribute("id").toString();
+        User user=userService.selectUserInfoById(Long.parseLong(id));
+        int follow = followService.selectFollowById(Long.parseLong(id));
+        int followed = followService.selectFollowedById(Long.parseLong(id));
+        HashMap<String,Object> data = new HashMap<>();
+        data.put("user",user);
+        data.put("follow",follow);
+        data.put("followed",followed);
+        return JSON.toJSONString(data);
+    }
     @GetMapping("/userInfoById")
     public String selectUserInfoById(HttpServletRequest request){
-        String userId = request.getParameter("userId").toString();
+        String userId = request.getParameter("userId");
         User user = userService.selectUserInfoById(Long.parseLong(userId));
         List<Dynamic> dynamics = dynamicService.selectDynamicsByUserId(Long.parseLong(userId));
         List<Works> works =  workService.selectWorksByUserId(Long.parseLong(userId));
+        int follow = followService.selectFollowById(Long.parseLong(userId));
+        int followed = followService.selectFollowedById(Long.parseLong(userId));
         HashMap<String,Object> data = new HashMap<>();
         data.put("user",user);
         data.put("dynamics",dynamics);
         data.put("works",works);
+        data.put("follow",follow);
+        data.put("followed",followed);
         return JSON.toJSONString(data);
     }
     @GetMapping("/selectAllUsers")

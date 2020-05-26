@@ -26,4 +26,18 @@ public class FollowServiceImpl implements FollowService {
         followExample.createCriteria().andFollowedIdEqualTo(id2).andFollowIdEqualTo(id1);
         return followMapper.deleteByExample(followExample);
     }
+
+    @Override
+    public int selectFollowById(long id){
+        FollowExample  followExample=new FollowExample();
+        followExample.createCriteria().andFollowIdEqualTo(id);
+        return (int)followMapper.countByExample(followExample);
+    }
+
+    @Override
+    public int selectFollowedById(long id){
+        FollowExample  followExample=new FollowExample();
+        followExample.createCriteria().andFollowedIdEqualTo(id);
+        return (int)followMapper.countByExample(followExample);
+    }
 }
