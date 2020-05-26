@@ -67,7 +67,7 @@ public class DynamicServiceImpl implements DynamicService {
         return dynamics;
     }
     @Override
-    public Dynamic selectDynamicById(long id){
+    public DynamicPlus selectDynamicById(long id){
         return complexMapper.selectDynamicById(id);
     }
     @Override

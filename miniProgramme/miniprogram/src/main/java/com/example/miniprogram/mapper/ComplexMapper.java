@@ -14,5 +14,5 @@ public interface ComplexMapper {
      String selectPhone(String id);
      List<AppointmentPlus> selectReceiveApt(long id);
      List<AppointmentPlus> selectSendApt(long id);
-     Dynamic selectDynamicById(long id);
+     DynamicPlus selectDynamicById(long id);
 }

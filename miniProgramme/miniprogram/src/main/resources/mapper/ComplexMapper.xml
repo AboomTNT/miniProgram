@@ -34,7 +34,7 @@
         <result column="appointment_reason" jdbcType="VARCHAR" property="appointmentReason" />
         <result column="appointment_fromId" jdbcType="BIGINT" property="appointmentFromid" />
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
-        <result column="user_avater" jdbcType="VARCHAR" property="userIdentity" />
+        <result column="user_avater" jdbcType="VARCHAR" property="userAvater" />
         <result column="user_identity" jdbcType="VARCHAR" property="userIdentity" />
         <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
         <result column="user_gender" jdbcType="VARCHAR" property="userGender" />
@@ -159,6 +159,6 @@
         dynamic ,
         `user`
         WHERE
-        dynamic.dynamic_id = #{id}
+        dynamic.dynamic_id = #{id} AND dynamic.dynamic_userid = `user`.user_id
     </select>
 </mapper>

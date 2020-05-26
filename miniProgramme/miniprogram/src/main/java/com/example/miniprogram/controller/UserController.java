@@ -41,7 +41,14 @@ public class UserController {
     }
     @GetMapping("/selectContact")
     public String selectContact(HttpServletRequest request){
-        String id=request.getSession().getAttribute("id").toString();
+        String id;
+        Object object = request.getSession().getAttribute("id");
+        if(object==null){
+            id = request.getParameter("id");
+    }else {
+        id = request.getSession().getAttribute("id").toString();
+    }
+
         System.out.println(id);
         System.out.println(JSON.toJSONString(userService.selectContact(id)));
         return  JSON.toJSONString(userService.selectContact(id));

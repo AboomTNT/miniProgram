@@ -39,9 +39,9 @@ public class AppointmentController {
 
     @GetMapping("/appointmentReply")
     public int appointmentReply(HttpServletRequest request) {
-        String appointmentId = request.getSession().getAttribute("appointmentId").toString();
-        int agree = Integer.parseInt(request.getSession().getAttribute("appointmentId").toString());
-        return appointmentService.updateAgree(Long.parseLong(appointmentId), agree);
+        String appointmentId = request.getParameter("appointmentId");
+        int status = Integer.parseInt(request.getParameter("status"));
+        return appointmentService.updateAgree(Long.parseLong(appointmentId), status);
     }
 
     @GetMapping("/selectAptById1")

@@ -13,7 +13,7 @@ public interface DynamicService {
 
     public List<Dynamic> selectDynamicsByTags(String address, String who, String gender, String style);
     public List<Dynamic> selectDynamicsByUserId(long user_id);
-    public Dynamic selectDynamicById(long id);
+    public DynamicPlus selectDynamicById(long id);
     public int insertDynamic(JSONObject object,String id);
     public int deleteDynamic(long dynamic_id);
     public List<Dynamic> orderDynamic();
