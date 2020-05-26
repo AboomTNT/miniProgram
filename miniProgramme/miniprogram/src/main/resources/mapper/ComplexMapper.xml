@@ -109,7 +109,7 @@
           appointment ,
           `user`
           WHERE
-          appointment.appointment_userid2 = `user`.user_id
+          appointment.appointment_userid2 = #{id} AND appointment.appointment_userid1= `user`.user_id
           ORDER BY
           appointment.appointment_time DESC
     </select>
@@ -132,7 +132,7 @@
           appointment ,
           `user`
           WHERE
-          appointment.appointment_userid1 = `user`.user_id
+          appointment.appointment_userid1 = #{id} AND appointment.appointment_userid2= `user`.user_id
           ORDER BY
           appointment.appointment_time DESC
     </select>
