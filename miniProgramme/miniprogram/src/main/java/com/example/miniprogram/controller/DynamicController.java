@@ -95,7 +95,7 @@ public class DynamicController {
         MultipartFile multipartFile = req.getFile("img");
 
         //realPath填写电脑文件夹路径
-        String realPath = "D:\\miniProgramme\\miniprogram\\src\\main\\resources\\static\\images";
+        String realPath = "D:\\Graduation\\miniProgramme\\miniprogram\\src\\main\\resources\\static\\images";
 
         //裁剪用户id
         String originalFirstName = multipartFile.getOriginalFilename();
