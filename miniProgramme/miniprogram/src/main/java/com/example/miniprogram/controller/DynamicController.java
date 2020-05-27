@@ -76,6 +76,10 @@ public class DynamicController {
 //        return  dynamicService.insertDynamic(dynamic);
     }
     //删除动态
+    @GetMapping("/selectDynamicByNum")
+    public String selectDynamicByNum(){
+        return JSON.toJSONString(dynamicService.selectDynamicByNum());
+    }
     @GetMapping("/deleteDynamic")
     public int deleteDynamic(long dynamic_id){
         return dynamicService.deleteDynamic(dynamic_id);

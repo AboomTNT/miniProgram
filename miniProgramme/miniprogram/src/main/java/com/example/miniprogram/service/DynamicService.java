@@ -14,7 +14,9 @@ public interface DynamicService {
     List<DynamicPlus> selectDynamicsByTags(String region, String identity, String gender, String style);
     List<Dynamic> selectDynamicsByUserId(long user_id);
     DynamicPlus selectDynamicById(long id);
+    int updateDynamicNum(long id);
     int insertDynamic(JSONObject object,String id);
     int deleteDynamic(long dynamic_id);
     List<Dynamic> orderDynamic();
+    List<DynamicPlus> selectDynamicByNum();
 }

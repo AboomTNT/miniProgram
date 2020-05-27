@@ -58,6 +58,20 @@ public class DynamicServiceImpl implements DynamicService {
     public DynamicPlus selectDynamicById(long id){
         return complexMapper.selectDynamicById(id);
     }
+
+    @Override
+    public int updateDynamicNum(long id) {
+        DynamicExample example = new DynamicExample();
+        DynamicExample.Criteria criteria=example.createCriteria();
+        criteria.andDynamicIdEqualTo(id);
+        Dynamic dynamic = dynamicMapper.selectByPrimaryKey(id);
+        long num = dynamic.getDynamicNum();
+        num++;
+        dynamic.setDynamicNum(num);
+        return dynamicMapper.updateByExample(dynamic,example);
+
+    }
+
     @Override
     public int insertDynamic(JSONObject object,String id){
         Dynamic dynamic=new Dynamic();
@@ -102,6 +116,12 @@ public class DynamicServiceImpl implements DynamicService {
         dynamicExample.setOrderByClause("dynamic_num DESC");
         List<Dynamic> dynamics=dynamicMapper.selectByExample(dynamicExample);
         return dynamics;
+    }
+
+    @Override
+    public List<DynamicPlus> selectDynamicByNum() {
+
+        return complexMapper.selectDynamicByNum();
     }
 
 }
