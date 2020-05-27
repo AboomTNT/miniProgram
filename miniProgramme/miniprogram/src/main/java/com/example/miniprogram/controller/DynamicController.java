@@ -46,9 +46,9 @@ public class DynamicController {
         return JSON.toJSONString(data);
     }
     //按筛选显示动态
-    @GetMapping("/selectDynamicsByTags")
-    public List<Dynamic> selectDynamicsByTags(String address, String who, String gender, String style){
-        return dynamicService.selectDynamicsByTags(address, who, gender,  style);
+    @PostMapping("/selectDynamicsByTags")
+    public String selectDynamicsByTags(String region, String identity, String gender, String style){
+        return JSON.toJSONString(dynamicService.selectDynamicsByTags(region, identity, gender,  style));
     }
     //通过发布者查询动态
     @GetMapping("/selectDynamicByUserId")
