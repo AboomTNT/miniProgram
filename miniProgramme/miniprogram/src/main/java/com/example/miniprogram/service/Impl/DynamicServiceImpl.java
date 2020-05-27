@@ -40,21 +40,9 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
     @Override
-    public List<Dynamic> selectDynamicsByTags(String address, String who, String gender, String style) {
-        DynamicExample example = new DynamicExample();
-        DynamicExample.Criteria criteria=example.createCriteria();
-        if(!("全国").equals(address))
-            criteria.andDynamicAreaEqualTo(address);
-        if (!("身份".equals(who)))
-            criteria.andDynamicWhoEqualTo(who);
-        if (!("性别").equals(gender))
-            criteria.andDynamicGenderEqualTo(gender);
-        if (!("风格").equals(style))
-            criteria.andDynamicStyleEqualTo(style);
-        example.setOrderByClause("dynamic_time DESC");
-        List<Dynamic> dynamics = dynamicMapper.selectByExample(example);
-        System.out.println(dynamics.get(0).getDynamicGender());
-        return dynamics;
+    public List<DynamicPlus> selectDynamicsByTags(String region, String identity, String gender, String style) {
+
+        return complexMapper.selectDynamicsByTags(region,identity,gender,style);
     }
     @Override
     public List<Dynamic> selectDynamicsByUserId(long user_id){
@@ -70,6 +58,20 @@ public class DynamicServiceImpl implements DynamicService {
     public DynamicPlus selectDynamicById(long id){
         return complexMapper.selectDynamicById(id);
     }
+
+    @Override
+    public int updateDynamicNum(long id) {
+        DynamicExample example = new DynamicExample();
+        DynamicExample.Criteria criteria=example.createCriteria();
+        criteria.andDynamicIdEqualTo(id);
+        Dynamic dynamic = dynamicMapper.selectByPrimaryKey(id);
+        long num = dynamic.getDynamicNum();
+        num++;
+        dynamic.setDynamicNum(num);
+        return dynamicMapper.updateByExample(dynamic,example);
+
+    }
+
     @Override
     public int insertDynamic(JSONObject object,String id){
         Dynamic dynamic=new Dynamic();
@@ -114,6 +116,12 @@ public class DynamicServiceImpl implements DynamicService {
         dynamicExample.setOrderByClause("dynamic_num DESC");
         List<Dynamic> dynamics=dynamicMapper.selectByExample(dynamicExample);
         return dynamics;
+    }
+
+    @Override
+    public List<DynamicPlus> selectDynamicByNum() {
+
+        return complexMapper.selectDynamicByNum();
     }
 
 }

@@ -6,6 +6,7 @@ import com.example.miniprogram.entity.Appointment;
 import com.example.miniprogram.entity.AppointmentPlus;
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.service.AppointmentService;
+import com.example.miniprogram.service.DynamicService;
 import com.example.miniprogram.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ public class AppointmentController {
     private AppointmentService appointmentService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private  DynamicService dynamicService;
 
     @GetMapping("/selectReciveApt")
     public String selectReciveApt(HttpServletRequest request) {
@@ -61,6 +64,7 @@ public class AppointmentController {
         String id1 = request.getSession().getAttribute("id").toString();
         String id2 = request.getParameter("id");
         String dynamicId = request.getParameter("dynamicId");
+        dynamicService.updateDynamicNum(Long.parseLong(dynamicId));
         if (id1.equals(id2))
             return 0;
         return appointmentService.insertAppointment(appointment, id1, id2, dynamicId);

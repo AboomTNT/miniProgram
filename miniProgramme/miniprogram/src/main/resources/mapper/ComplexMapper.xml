@@ -91,6 +91,43 @@
         WHERE
         dynamic.dynamic_userid = `user`.user_id
     </select>
+    <select id="selectDynamicsByTags" resultMap="DynamicResultMap">
+        SELECT
+        dynamic.dynamic_id,
+        dynamic.dynamic_address,
+        dynamic.dynamic_require,
+        dynamic.dynamic_date,
+        dynamic.dynamic_area,
+        dynamic.dynamic_who,
+        dynamic.dynamic_num,
+        dynamic.dynamic_time,
+        dynamic.dynamic_money,
+        dynamic.dynamic_finish,
+        dynamic.dynamic_img,
+        dynamic.dynamic_style,
+        dynamic.dynamic_userid,
+        dynamic.dynamic_gender,
+        `user`.user_identity,
+        `user`.user_name,
+        `user`.user_avater
+        FROM
+        dynamic ,
+        `user`
+        WHERE
+        <if test="region !='全国' ">
+            dynamic.dynamic_area LIKE CONCAT(CONCAT('%', #{region}),'%')
+        </if>
+        <if test="identity !='身份' ">
+            dynamic.dynamic_who = #{identity}
+        </if>
+        <if test="gender !='性别' ">
+            dynamic.dynamic_gender = #{gender}
+        </if>
+        <if test="style !='风格' ">
+            dynamic.dynamic_style LIKE CONCAT(CONCAT('%', #{style}),'%')
+        </if>
+        dynamic.dynamic_userid = `user`.user_id
+    </select>
     <select id="selectReceiveApt" resultMap="appointmentResultMap">
         SELECT
           appointment.appointment_id,
@@ -160,5 +197,34 @@
         `user`
         WHERE
         dynamic.dynamic_id = #{id} AND dynamic.dynamic_userid = `user`.user_id
+    </select>
+
+    <select id="selectDynamicByNum" resultMap="DynamicResultMap">
+        SELECT
+        dynamic.dynamic_id,
+        dynamic.dynamic_address,
+        dynamic.dynamic_require,
+        dynamic.dynamic_date,
+        dynamic.dynamic_area,
+        dynamic.dynamic_who,
+        dynamic.dynamic_num,
+        dynamic.dynamic_time,
+        dynamic.dynamic_money,
+        dynamic.dynamic_finish,
+        dynamic.dynamic_img,
+        dynamic.dynamic_style,
+        dynamic.dynamic_userid,
+        dynamic.dynamic_gender,
+        `user`.user_avater,
+        `user`.user_identity,
+        `user`.user_name
+        FROM
+        dynamic ,
+        `user`
+        WHERE
+        dynamic.dynamic_userid = `user`.user_id
+        ORDER BY
+        dynamic.dynamic_num DESC
+
     </select>
 </mapper>

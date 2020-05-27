@@ -5,6 +5,7 @@ import com.example.miniprogram.entity.*;
 import com.example.miniprogram.entity.Appointment;
 import com.example.miniprogram.mapper.AppointmentMapper;
 import com.example.miniprogram.mapper.ComplexMapper;
+import com.example.miniprogram.mapper.DynamicMapper;
 import com.example.miniprogram.service.AppointmentService;
 import org.springframework.stereotype.Service;
 
