@@ -1,6 +1,7 @@
 package com.example.miniprogram.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.miniprogram.entity.Dynamic;
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.entity.Works;
@@ -9,10 +10,7 @@ import com.example.miniprogram.service.FollowService;
 import com.example.miniprogram.service.UserService;
 import com.example.miniprogram.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -65,6 +63,12 @@ public class UserController {
         data.put("follow",follow);
         data.put("followed",followed);
         return JSON.toJSONString(data);
+    }
+    @PostMapping("/updateUser")
+    public int updateUser(HttpServletRequest request,String user){
+        String id = request.getSession().getAttribute("id").toString();
+        JSONObject user1 = JSON.parseObject(user);
+        return 1;
     }
     @GetMapping("/userInfoById")
     public String selectUserInfoById(HttpServletRequest request){
