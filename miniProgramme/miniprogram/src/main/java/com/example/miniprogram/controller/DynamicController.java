@@ -10,6 +10,7 @@ import com.example.miniprogram.entity.User;
 import com.example.miniprogram.service.DynamicService;
 import com.example.miniprogram.service.UserService;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,7 +48,12 @@ public class DynamicController {
     }
     //按筛选显示动态
     @PostMapping("/selectDynamicsByTags")
-    public String selectDynamicsByTags(String region, String identity, String gender, String style){
+    public String selectDynamicsByTags(
+            @RequestParam("region") String region,
+            @RequestParam("identity") String identity,
+            @RequestParam("gender") String gender,
+            @RequestParam("style") String style){
+        System.out.println(region);
         return JSON.toJSONString(dynamicService.selectDynamicsByTags(region, identity, gender,  style));
     }
     //通过发布者查询动态
@@ -64,7 +70,6 @@ public class DynamicController {
     //插入动态
     @GetMapping("/insertDynamic")
     public int insertDynamic(HttpServletRequest request){
-//        System.out.println(request.getParameter("formdata"));
         JSONArray imgs = JSON.parseArray(request.getParameter("img"));
         JSONObject data= JSON.parseObject(request.getParameter("dynamic"));
         data.put("imgs",imgs);

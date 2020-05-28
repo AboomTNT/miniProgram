@@ -90,6 +90,7 @@
         `user`
         WHERE
         dynamic.dynamic_userid = `user`.user_id
+        order by dynamic.dynamic_time DESC
     </select>
     <select id="selectDynamicsByTags" resultMap="DynamicResultMap">
         SELECT
@@ -114,19 +115,20 @@
         dynamic ,
         `user`
         WHERE
+        dynamic.dynamic_userid = `user`.user_id
         <if test="region !='全国' ">
-            dynamic.dynamic_area LIKE CONCAT(CONCAT('%', #{region}),'%')
+            AND (dynamic.dynamic_area LIKE CONCAT(CONCAT('%', #{region}),'%'))
         </if>
-        <if test="identity !='身份' ">
-            dynamic.dynamic_who = #{identity}
+        <if test="identity !='约拍对象' ">
+            AND (dynamic.dynamic_who = #{identity})
         </if>
         <if test="gender !='性别' ">
-            dynamic.dynamic_gender = #{gender}
+            AND (dynamic.dynamic_gender = #{gender})
         </if>
         <if test="style !='风格' ">
-            dynamic.dynamic_style LIKE CONCAT(CONCAT('%', #{style}),'%')
+            AND (dynamic.dynamic_style LIKE CONCAT(CONCAT('%', #{style}),'%'))
         </if>
-        dynamic.dynamic_userid = `user`.user_id
+        order by dynamic.dynamic_time DESC
     </select>
     <select id="selectReceiveApt" resultMap="appointmentResultMap">
         SELECT

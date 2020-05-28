@@ -15,6 +15,6 @@ public interface ComplexMapper {
      List<AppointmentPlus> selectReceiveApt(long id);
      List<AppointmentPlus> selectSendApt(long id);
      DynamicPlus selectDynamicById(long id);
-     List<DynamicPlus> selectDynamicsByTags(String region,String identity,String gender,String style);
+     List<DynamicPlus> selectDynamicsByTags(@Param("region") String region,@Param("identity") String identity,@Param("gender") String gender,@Param("style") String style);
      List<DynamicPlus> selectDynamicByNum();
 }

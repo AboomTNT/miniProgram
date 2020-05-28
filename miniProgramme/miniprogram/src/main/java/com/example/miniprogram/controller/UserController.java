@@ -65,10 +65,10 @@ public class UserController {
         return JSON.toJSONString(data);
     }
     @PostMapping("/updateUser")
-    public int updateUser(HttpServletRequest request,String user){
+    public int updateUser(@RequestParam("user") String user,HttpServletRequest request){
         String id = request.getSession().getAttribute("id").toString();
         JSONObject user1 = JSON.parseObject(user);
-        return 1;
+        return userService.updateUser(user1,id);
     }
     @GetMapping("/userInfoById")
     public String selectUserInfoById(HttpServletRequest request){
@@ -95,8 +95,5 @@ public class UserController {
     public String genderById(long id){
         return userService.genderById(id);
     }
-    @GetMapping("/updateUser")
-    public int updateUser(@RequestParam("updateUser") User user){
-        return userService.updateUser(user);
-    }
+
 }

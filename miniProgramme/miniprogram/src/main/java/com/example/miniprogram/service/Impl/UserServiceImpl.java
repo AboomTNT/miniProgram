@@ -1,5 +1,6 @@
 package com.example.miniprogram.service.Impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.entity.UserExample;
@@ -29,24 +30,29 @@ public class UserServiceImpl implements UserService {
     public String genderById(long id){
         return "";
     }
-
+    @Override
     public User selectUserInfoById(long id){
         return userMapper.selectByPrimaryKey(id);
     }
 
+
+
     @Override
-    public int updateUser(JSONObject user, String id) {
+    public int updateUser(JSONObject user,String id){
         User user1 = new User();
         user1.setUserName(user.getString("name"));
         user1.setUserAvater(user.getString("img"));
-        user1.setUserAddress(user.getString("address"));
-        //user1.setUserBirthday(user.getString("bitthday"));
-        return 1;
-    }
-
-    @Override
-    public int updateUser(User user){
-        return userMapper.updateByPrimaryKeySelective(user);
+        JSONArray region = user.getJSONArray("address");
+        String address = region.getString(1);
+        user1.setUserAddress(address);
+        user1.setUserBirthday(user.getString("birthday"));
+        user1.setUserGender(user.getString("gender"));
+        user1.setUserWx(user.getString("wx"));
+        user1.setUserPhone(user.getString("phone"));
+        user1.setUserIdentity(user.getString("identity"));
+        user1.setUserDescribe(user.getString("describe"));
+        user1.setUserId(Long.parseLong(id));
+        return userMapper.updateByPrimaryKey(user1);
     }
     @Override
     public User selectContact(String id){
