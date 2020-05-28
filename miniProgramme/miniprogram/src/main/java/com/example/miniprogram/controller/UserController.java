@@ -72,6 +72,7 @@ public class UserController {
     }
     @GetMapping("/userInfoById")
     public String selectUserInfoById(HttpServletRequest request){
+        String id = request.getSession().getAttribute("id").toString();
         String userId = request.getParameter("userId");
         User user = userService.selectUserInfoById(Long.parseLong(userId));
         List<Dynamic> dynamics = dynamicService.selectDynamicsByUserId(Long.parseLong(userId));
@@ -80,6 +81,7 @@ public class UserController {
         int followed = followService.selectFollowedById(Long.parseLong(userId));
         HashMap<String,Object> data = new HashMap<>();
         data.put("user",user);
+        data.put("loginUserId",id);
         data.put("dynamics",dynamics);
         data.put("works",works);
         data.put("follow",follow);

@@ -35,7 +35,8 @@ public class WorkController {
         return workService.selectWorkById(id);
     }
     @GetMapping("/deleteWork")
-    public int deleteWorkById(long id){
-        return workService.deleteWork(id);
+    public int deleteWorkById(HttpServletRequest request){
+        String id = request.getParameter("workId");
+        return workService.deleteWork(Long.parseLong(id));
     }
 }

@@ -86,8 +86,9 @@ public class DynamicController {
         return JSON.toJSONString(dynamicService.selectDynamicByNum());
     }
     @GetMapping("/deleteDynamic")
-    public int deleteDynamic(long dynamic_id){
-        return dynamicService.deleteDynamic(dynamic_id);
+    public int deleteDynamic(HttpServletRequest request){
+        String id=request.getParameter("dynamicId");
+        return dynamicService.deleteDynamic(Long.parseLong(id));
     }
     //按照约拍数对动态排序
     @GetMapping("/orderDynamic")

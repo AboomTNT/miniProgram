@@ -74,4 +74,13 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public int isEqualLogin(long id, long dynamicId) {
+        AppointmentExample appointmentExample = new AppointmentExample();
+        AppointmentExample.Criteria criteria=appointmentExample.createCriteria();
+        criteria.andAppointmentUserid1EqualTo(id).andAppointmentFromidEqualTo(dynamicId);
+
+        return (int)appointmentMapper.countByExample(appointmentExample);
+    }
+
 }
