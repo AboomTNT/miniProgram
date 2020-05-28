@@ -1,5 +1,6 @@
 package com.example.miniprogram.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.miniprogram.entity.User;
 import com.example.miniprogram.entity.UserExample;
 import com.example.miniprogram.mapper.ComplexMapper;
@@ -32,6 +33,17 @@ public class UserServiceImpl implements UserService {
     public User selectUserInfoById(long id){
         return userMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public int updateUser(JSONObject user, String id) {
+        User user1 = new User();
+        user1.setUserName(user.getString("name"));
+        user1.setUserAvater(user.getString("img"));
+        user1.setUserAddress(user.getString("address"));
+        //user1.setUserBirthday(user.getString("bitthday"));
+        return 1;
+    }
+
     @Override
     public int updateUser(User user){
         return userMapper.updateByPrimaryKeySelective(user);
