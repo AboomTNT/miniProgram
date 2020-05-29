@@ -15,13 +15,13 @@ public class FollowController {
     private FollowService followService;
     @GetMapping("/insertFollow")
     public int insertFollow(HttpServletRequest request){
-        String id1 = request.getSession().getAttribute("id").toString();
+        String id1 = request.getParameter("loginId");
         String id2 = request.getParameter("id");
         return  followService.insertFollow(Long.parseLong(id1),Long.parseLong(id2));
     }
     @GetMapping("/deleteFollow")
     public int delleteFollow(HttpServletRequest request){
-        String id1 = request.getSession().getAttribute("id").toString();
+        String id1 = request.getParameter("loginId");
         String id2 = request.getParameter("id");
         return  followService.deleteFollow(Long.parseLong(id1),Long.parseLong(id2));
     }

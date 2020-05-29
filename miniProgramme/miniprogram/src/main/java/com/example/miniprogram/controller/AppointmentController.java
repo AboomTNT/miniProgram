@@ -67,7 +67,7 @@ public class AppointmentController {
         dynamicService.updateDynamicNum(Long.parseLong(dynamicId));
         if (id1.equals(id2))
             return 0;
-        if (appointmentService.isEqualLogin(Long.parseLong(id1),Long.parseLong(dynamicId))==1)
+        if (appointmentService.isAppointed(Long.parseLong(id1),Long.parseLong(dynamicId))!=0)
             return 3;
         return appointmentService.insertAppointment(appointment, id1, id2, dynamicId);
     }

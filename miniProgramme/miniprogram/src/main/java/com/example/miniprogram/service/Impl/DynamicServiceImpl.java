@@ -51,7 +51,7 @@ public class DynamicServiceImpl implements DynamicService {
         criteria.andDynamicUseridEqualTo(user_id);
         example.setOrderByClause("dynamic_time DESC");
         List<Dynamic> dynamics = dynamicMapper.selectByExample(example);
-        System.out.println(dynamics.get(0).getDynamicGender());
+//        System.out.println(dynamics.get(0).getDynamicGender());
         return dynamics;
     }
     @Override

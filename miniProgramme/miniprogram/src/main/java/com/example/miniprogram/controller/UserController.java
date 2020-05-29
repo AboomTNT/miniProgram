@@ -79,6 +79,7 @@ public class UserController {
         List<Works> works =  workService.selectWorksByUserId(Long.parseLong(userId));
         int follow = followService.selectFollowById(Long.parseLong(userId));
         int followed = followService.selectFollowedById(Long.parseLong(userId));
+        int isFollow = followService.isFollow(Long.parseLong(id),Long.parseLong(userId));
         HashMap<String,Object> data = new HashMap<>();
         data.put("user",user);
         data.put("loginUserId",id);
@@ -86,6 +87,7 @@ public class UserController {
         data.put("works",works);
         data.put("follow",follow);
         data.put("followed",followed);
+        data.put("isFollow",isFollow);
         return JSON.toJSONString(data);
     }
     @GetMapping("/selectAllUsers")

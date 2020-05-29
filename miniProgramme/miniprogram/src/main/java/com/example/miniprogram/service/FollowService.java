@@ -5,4 +5,5 @@ public interface FollowService {
     int deleteFollow(long id1,long id2);
     int selectFollowById(long id);
     int selectFollowedById(long id);
+    int isFollow(long id1,long id2);
 }

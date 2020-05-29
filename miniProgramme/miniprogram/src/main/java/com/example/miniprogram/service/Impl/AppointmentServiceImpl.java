@@ -75,7 +75,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public int isEqualLogin(long id, long dynamicId) {
+    public int isAppointed(long id, long dynamicId) {
         AppointmentExample appointmentExample = new AppointmentExample();
         AppointmentExample.Criteria criteria=appointmentExample.createCriteria();
         criteria.andAppointmentUserid1EqualTo(id).andAppointmentFromidEqualTo(dynamicId);

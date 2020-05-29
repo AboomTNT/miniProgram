@@ -14,5 +14,5 @@ public interface AppointmentService {
     List<AppointmentPlus> selectSendApt(long id);
     int updateAgree(long appointment_id,int state);
     Appointment selectAptById(long id);
-    int isEqualLogin(long id,long dynamicId);
+    int isAppointed(long id,long dynamicId);
 }
