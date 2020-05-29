@@ -1,0 +1,107 @@
+/* pages/specific_content/specific_content.wxss */
+
+@import "../../pages/index01/index01.wxss";
+.message_header {
+    display: flex;
+    background-color: white;
+    height: 150rpx;
+    align-items: center;
+}
+
+.message {
+    height: 50%;
+}
+
+.intention {
+    margin-top: 10rpx;
+    height: 125rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icon_and_text {
+    padding: 10rpx;
+    color: gray;
+    height: 100%;
+}
+
+.icon {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.icon image {
+    height: 100%;
+}
+
+.text {
+    padding-top: 10rpx;
+    height: 50%;
+    font-size: 24rpx;
+}
+
+.specific_content {
+    background-color: #fff;
+    margin-top: 5rpx;
+}
+
+.content_text {
+    padding: 10rpx;
+    font-size: 28rpx;
+}
+
+.specific_content_image {
+    width: 100%;
+    padding: 10rpx;
+}
+
+.specific_content_image image {
+    width: 100%;
+}
+
+.time_and_readers {
+    font-size: 24rpx;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.static_footer {
+    padding: 10rpx;
+    background-color: #fff;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    width: 750rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.static_footer_left {
+    height: 100%;
+}
+
+.static_footer image {
+    height: 50%;
+}
+
+.footer_text {
+    font-size: 24rpx;
+    color: gray;
+}
+
+.appoitment {
+    border-color: var(--themecolor);
+    border-width: 1rpx;
+    border-style: solid;
+    background-color: var(--themecolor);
+    color: white;
+    border-radius: 20rpx;
+    padding: 10rpx;
+    width: 450rpx;
+    text-align: center;
+}

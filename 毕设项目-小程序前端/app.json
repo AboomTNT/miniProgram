@@ -1,0 +1,66 @@
+{
+    "pages": [
+      "pages/index/index",
+      "pages/publish_appointment/publish_appointment",
+      "pages/specific_gallery/specific_gallery",
+      "pages/index01/index01",
+      "pages/messages/messages",
+      "pages/specific_appointment/specific_appointment",
+      "pages/recieved_appointment/recieved_appointment",
+      "pages/send_appointment/send_appointment",
+       "pages/my/my",
+      "pages/edit_information/edit_information",
+      "pages/cropper/cropper",
+      "pages/publish_gallery/publish_gallery",
+        "pages/publish/publish",
+        "pages/user_index/user_index",
+        "pages/appointment/appointment",
+        "pages/specific_content/specific_content",
+        "pages/logs/logs",
+        "pages/rank/rank"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#8fbc8f",
+        "navigationBarTitleText": "校园约拍",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#8fbc8f",
+        "list": [{
+                "pagePath": "pages/index01/index01",
+                "text": "首页",
+                "iconPath": "icons/首页.png",
+                "selectedIconPath": "icons/首页.png"
+            },
+            {
+                "pagePath": "pages/rank/rank",
+                "text": "排行",
+                "iconPath": "icons/排行.png",
+                "selectedIconPath": "icons/排行.png"
+            },
+            {
+                "pagePath": "pages/publish/publish",
+                "text": "发布",
+                "iconPath": "icons/icons8-添加图片-64.png",
+                "selectedIconPath": "icons/icons8-添加图片-64.png"
+            },
+            {
+                "pagePath": "pages/messages/messages",
+                "text": "消息",
+                "iconPath": "icons/icons8-聊天气泡-50.png",
+                "selectedIconPath": "icons/icons8-聊天气泡-50.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "icons/icons8-人像模式-24.png",
+                "selectedIconPath": "icons/icons8-人像模式-24.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

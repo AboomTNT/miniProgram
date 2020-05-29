@@ -1,0 +1,139 @@
+<!--pages/publish_appointment/publish_appointment.wxml-->
+<form bindsubmit="formSubmit">
+<view class="titleBar">
+    <image class="icon" src="../../icons/用户.png" mode="widthFix"/>
+    <view  class="title">
+      <text>约拍对象</text>
+    </view>
+</view>
+<view class="cho_apointment_identity">
+  <radio-group class="radio-group" name="identity">
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group>
+</view>
+  
+<view class="titleBar">
+    <image class="icon" src="../../icons/要求.png" mode="widthFix"/>
+    <view  class="title">
+      <text>约拍要求</text>
+    </view>
+    <view class="content">
+      <text>尽可能详细</text>
+    </view>
+</view>
+<view class="appointment_des">
+    <textarea placeholder="请描述一下你的约拍说明..." name="describe">
+        
+    </textarea>
+      
+</view>
+
+<view class="titleBar">
+    <image class="icon" src="../../icons/相册.png" mode="widthFix"/>
+    <view  class="title">
+      <text>上传照片</text>
+    </view>
+    <view class="content">
+      <text>本人作品/本人照片/期待风格</text>
+    </view>
+</view>
+
+<view class="upload_pho">
+    <view class="upload_pho_icon" bindtap="chooseImage">
+        <image src="../../icons/上传照片.png" mode="widthFix"/>
+        <view class="upload_pho_text">上传照片</view>
+    </view>
+    <view  class="upFile"  wx:for="{{banner}}" wx:key="key" data-id="{{index}}"
+    bindtap="showImageBanner">
+        <image class="itemImv" src="{{item}}" mode="aspectFill"></image>
+        <image class="closeImv" src="../../icons/减号.png" mode="scaleToFill" catchtap="deleteImvBanner" data-id="{{index}}"></image>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/时间.png" mode="widthFix"/>
+    <view  class="title">
+      <text>时间</text>
+    </view>
+    <view class="content">
+      <input value="" class="" type="text"  placeholder="你期望的时间（选填）" name="date"></input>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/发布约拍_地址.png" mode="widthFix"/>
+    <view  class="title">
+      <text>地点</text>
+    </view>
+    <view class="content">
+      <input class="" value="" type="text"  placeholder="你期望的地点（选填）" name="address"></input>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/成片.png" mode="widthFix"/>
+    <view  class="title">
+      <text>成片</text>
+    </view>
+    <view class="content">
+      <input class="" value="{{finish}}" type="text"  name="finish" placeholder="如：原片多少，精修多少等（选填）">
+         
+       </input>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/钱包.png" mode="widthFix"/>
+    <view  class="title">
+      <text>费用模式</text>
+    </view>
+    <view class="content">
+    <picker bindchange="changeMoney"  value="{{moneyIndex}}" range="{{moneyList}}">
+       <input class="" value="{{money}}" type="text"  name="money" placeholder="请选择费用模式">
+         
+       </input>
+         
+
+    </picker>
+    </view>
+      <image class="arrow icon" src="../../icons/箭头.png" mode="widthFix"/>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/面向区域.png" mode="widthFix"/>
+    <view  class="title">
+      <text>面向地区</text>
+    </view>
+    <view class="content">
+    <picker name="region" bindchange="changeRegin" mode = "region" value="{{region}}">
+     <input class="" value="{{region[0]}}-{{region[1]}}-{{region[2]}}" type="text"  placeholder="请选择面向地区">
+      </input>
+      </picker>
+    </view>
+      <image class="arrow icon" src="../../icons/箭头.png" mode="widthFix"/>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/风格标签.png" mode="widthFix"/>
+    <view  class="title">
+      <text>风格标签</text>
+    </view>
+</view>
+<view class="styleList">
+  <!-- <view class="{{item.isChecked?'newlables':'lables'}}" wx:for="{{styleList}}" wx:for-item="item" wx:for-index="index"
+  bindtap="changeClass" data-index="{{index}}">
+    {{item.name}}
+  </view>     -->
+
+ <view>
+          <checkbox-group name="style" class="style">
+          <label bindtap='clicks' wx:for="{{styleList}}" wx:for-index="index" data-index="{{index}}" class='{{item.checked?"is_checked":""}}'>
+            <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}' /> {{item.name}}
+          </label>
+        </checkbox-group>
+        </view>  
+</view>
+<view style="height:100rpx"></view>
+  <button style="width:100vw" class="btn" form-type="submit">
+    提交约拍
+  </button>
+  </form>
+   
+    
+  

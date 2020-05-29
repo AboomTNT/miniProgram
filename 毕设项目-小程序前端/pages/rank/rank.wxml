@@ -1,0 +1,60 @@
+<!--pages/rank/rank.wxml-->
+<view class="index_message" wx:for="{{dynamicsList}}" 
+wx:key="labelNameClick"  bindtap="toSpecificContent" data-dynamic="{{item}}">
+      <!--作者信息部分-->
+      <view class="index_message_header" >
+        <view class="writer_left">
+            <view class="header_icon" bindtap="toUserIndex" data-user="{{item}}">
+            <image src="{{url+'/'+item.userAvater}}" mode="aspectFill"></image>
+            </view> 
+            <view class="writer_message">
+              <view class="name_and_gender">
+                <view class="name"><text>{{item.userName}}</text></view>
+                 <view class="gender_icon">
+                 <image wx:if="{{item.dynamicGender==='女'}}" src="../../icons/性别女.png" mode='heightFix'/>
+                 <image wx:else src="../../icons/性别男.png" mode='heightFix'/>
+                 </view>
+           
+              </view>
+            <view class="writer_identity"><text>{{item.userIdentity}}</text></view> 
+          </view>  
+        </view>
+        <view  class="address">
+          <view class="address_icon">
+            <image  src="../../icons/地点.png" mode="heightFix"/>
+          </view>
+          <view class="address_text">
+            <text>{{item.dynamicArea[1]}}</text>
+          </view>
+        </view>
+      </view>
+      <!--内容部分-->
+      <view>
+        <view class="title">
+          <text>约{{item.dynamicWho}}</text>
+        </view>
+
+        <view class="content">
+          <text>{{item.dynamicRequire}}</text>
+        </view>
+        <view class="content_image" >
+          <image wx:for="{{item.dynamicImg}}"  wx:for-item="item1" mode="aspectFill" wx:key="index" wx:if="{{url+'/'+item1}}" src="{{url+'/'+item1}}" />
+        </view>
+
+        <view class="footer">
+          <view class="footer_left">
+            <text>{{item.dynamicTime}}</text>
+            
+          </view>
+          <view class="footer_right">
+           <text>收到的约拍{{" "+item.dynamicNum}}</text>
+          </view>
+        </view>
+        <view class="lables">
+            <view wx:for="{{item.dynamicStyle}}" wx:for-item="item1"><text>{{item1}}</text></view>
+        </view>
+      </view>
+  
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+    </view>

@@ -1,0 +1,50 @@
+<!--pages/specific_appointment/specific_appointment.wxml-->
+<view style="height:20rpx">
+    
+</view>
+<view class="message_header">
+        <view class="header_icon" bindtap="toUserIndex">
+        <image src="http://localhost:8080/miniprogram/images/{{appointment.userAvater}}" mode="aspectFill"></image></view> 
+             <view class="message">
+                  <view class="name_and_gender">
+                      <view class="name"><text>{{appointment.userName}}</text></view>
+                      <view wx:if="{{appointment.userGender=='女'}}" class="gender_icon"><image src="../../icons/性别女.png" mode='heightFix'/></view>
+                      <view wx:else class="gender_icon"><image src="../../icons/性别男.png" mode='heightFix'/></view>
+                  </view>
+             <view class="writer_identity"><text>{{appointment.userIdentity}}</text> <text>{{appointment.userAddress}}</text></view> 
+        </view>  
+</view>
+<view style="height:5rpx">
+     
+</view>
+<view style="background-color: #fff">
+<view class="reason" >
+        约拍理由：{{appointment.appointmentReason}}
+</view>
+<view class="from" bindtap="toSpecificContent" >
+        点击查看来自约拍
+</view>
+<view style="height:20rpx">
+     
+</view>
+</view>
+  <view style="height:20rpx">
+  </view>
+<view class="associate">
+     联系方式
+</view>
+<view class="associate">
+     手机号{{phone}}
+</view>
+<view class="associate">
+     微信号{{wx}}
+</view>
+<view class="footer">
+
+<button  wx:if="{{appointment.appointmentAgree==0}}" class="agree"  bindtap="agree">
+     同意
+</button>
+<button wx:if="{{appointment.appointmentAgree==0}}" class="refuse" bindtap="refuse">
+     拒绝
+</button>
+</view>

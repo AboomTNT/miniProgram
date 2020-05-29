@@ -1,0 +1,89 @@
+<!--pages/user_index/user_index.wxml-->
+<!--头像及名称-->
+<view class="top">
+    <view class="head_image">
+    <image class="head_icon" src="http://localhost:8080/miniprogram/images/{{user.userAvater}}" mode="aspectFill"/>
+    </view>
+
+    <view class="name_and_gender">
+        <text>{{user.userName}}</text>
+        <image wx:if="{{user.userGender=='女'}}" src="../../icons/性别女.png" mode="aspectFill"/>
+        <image wx:else src="../../icons/性别男.png" mode="aspectFill"/>
+    </view>
+</view>
+
+<!--用户信息-->
+    <view class="user_imformation">
+        <view><text>{{user.userIdentity}}</text> </view>
+        <view class="address">
+            <image src="../../icons/地点.png" mode="heightFix"/>
+            <text>{{user.userAddress}}</text>
+        </view>
+        <view><text>年龄</text></view>  
+    </view>
+
+    <view class="fans">
+        <view>  
+        <button class="fans_button"style="width:100rpx" form-type="submit" bindtap="changeAttention" >{{attention}}</button>
+       </view>
+      <view class="fans_text">
+        <view><text>关注{{follow}}</text></view>
+        <view><text>粉丝{{followed}}</text></view>
+      </view>
+    </view>
+    
+    <Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+      <block wx:if="{{tabs[0].isActive}}">
+          <view  wx:for="{{dynamics}}" wx:key="index" data-dynamic="{{item}}" bindtap="toSpecificContent">
+        <view class="title">
+          <text>约{{item.dynamicWho}}</text>
+        </view>
+
+        <view class="content">
+          <text>{{item.dynamicRequire}}</text>
+        </view>
+        <view class="content_image">
+
+          <image wx:for="{{item.dynamicImg}}" wx:key="index" mode="aspectFill" src="http://localhost:8080/miniprogram/images/{{item}}" />
+        </view>
+
+        <view class="footer">
+          <view class="footer_left">
+            <text>{{item.dynamicTime}}</text>
+          </view>
+          <view class="footer_right">
+            <text>收到的约拍 {{item.dynamicNum}}</text>
+          </view>
+          <button wx:if="{{loginUserId==user.userId}}"  data-dynamic="{{item}}" bindtap="deleteDynamic">删除</button>
+        </view>
+      </view>
+      </block>
+       <block wx:else="{{items}}">
+         <view wx:for="{{works}}" wx:key="index"  data-work="{{item}}" bindtap="toSpecificGallery">
+            <view class="content">
+            <text>{{item.worksDescribe}}</text>
+            </view>
+            <view class="content_image">
+
+            <image wx:for="{{item.worksImg}}" mode="aspectFill" src="http://localhost:8080/miniprogram/images/{{item}}" />
+            </view>
+
+        <view class="footer">
+          <view class="footer_left">
+            <text>{{item.worksTime}}</text>
+          </view>
+          <button wx:if="{{loginUserId==user.userId}}" data-work="{{item}}" bindtap="deleteWork">删除</button>
+        </view>
+      </view>
+      
+       <view class="container"> <view class="divLine"></view></view>
+       </block>
+    </Tabs>
+  
+
+
+  
+
+  
+
+  

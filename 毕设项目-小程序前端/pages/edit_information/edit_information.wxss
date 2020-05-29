@@ -1,0 +1,50 @@
+/* pages/edit_information/edit_information.wxss */
+
+page {
+    background-color: whitesmoke;
+}
+
+.row {
+    margin-top: 5rpx;
+    height: 100rpx;
+    background-color: #fff;
+    padding: 10rpx;
+    font-size: 26rpx;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    height: 50rpx;
+    width: 50rpx;
+    border-radius: 25rpx;
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+    width: 20rpx;
+}
+
+.value {
+    position: absolute;
+    right: 30rpx;
+}
+
+.title {
+    font-size: 28rpx;
+}
+
+textarea {
+    background-color: #fff;
+    width: 750rpx;
+}
+
+button {
+    background-color: var(--themecolor);
+    height: 100rpx;
+    font-size: 32rpx;
+    color: white;
+    position: fixed;
+    bottom: 0rpx;
+}

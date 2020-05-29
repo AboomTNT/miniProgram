@@ -1,0 +1,16 @@
+/* pages/cropper/cropper.wxss */
+
+@import "../../style/common.wxss";
+page {
+    height: 100%
+}
+
+.cropper {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cropper-buttons {
+    color: var(--themecolor);
+}

@@ -1,0 +1,86 @@
+<!--pages/publish_gallery/publish_gallery.wxml-->
+<form bindsubmit="formSubmit">
+<view class="titleBar">
+    <image class="icon" src="../../icons/要求.png" mode="widthFix"/>
+    <view  class="title">
+      <text>作品名称/描述</text>
+    </view>
+</view>
+<view class="appointment_des">
+    <textarea name="describe" placeholder="请输入作品名称/描述...">
+    </textarea>
+      
+</view>
+
+<view class="titleBar">
+    <image class="icon" src="../../icons/相册.png" mode="widthFix"/>
+    <view  class="title">
+      <text>上传作品相册</text>
+    </view>
+</view>
+
+<view class="upload_pho">
+    <view class="upload_pho_icon" bindtap="chooseImage">
+        <image src="../../icons/上传照片.png" mode="widthFix"/>
+        <view class="upload_pho_text">上传作品</view>
+    </view>
+    <view  class="upFile"  wx:for="{{banner}}" wx:key="key" data-id="{{index}}"
+    bindtap="showImageBanner">
+        <image class="itemImv" src="{{item}}" mode="aspectFill"></image>
+        <image class="closeImv" src="../../icons/减号.png" mode="scaleToFill" catchtap="deleteImvBanner" data-id="{{index}}"></image>
+    </view>
+</view>
+
+<view class="titleBar">
+    <image class="icon" src="../../icons/相机.png" mode="widthFix"/>
+    <view  class="title">
+      <text>使用设备</text>
+    </view>
+    <view class="content">
+      <input class="" type="text" name="equipment" placeholder="请输入使用的设备（选填）"></input>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/发布约拍_地址.png" mode="widthFix"/>
+    <view  class="title">
+      <text>拍摄地点</text>
+    </view>
+    <view class="content">
+      <input class="" name="address" type="text"  placeholder="请输入拍摄地点（选填）"></input>
+    </view>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/成片.png" mode="widthFix"/>
+    <view  class="title">
+      <text>约拍返片</text>
+    </view>
+    <view class="content">
+      <text>是否约拍返片</text>
+    </view>
+    <switch name="givePhoto" checked="{{switchChecked}}" bindchange="switchChange"/>
+</view>
+<view class="titleBar">
+    <image class="icon" src="../../icons/风格标签.png" mode="widthFix"/>
+    <view  class="title">
+      <text>风格标签</text>
+    </view>
+</view>
+<view class="styleList">
+  <!-- <view class="{{item.isChecked?'newlables':'lables'}}" wx:for="{{styleList}}" wx:for-item="item" wx:for-index="index"
+  bindtap="changeClass" data-index="{{index}}">
+    {{item.name}}
+  </view>     -->
+
+ <view>
+          <checkbox-group name="style" class="style">
+          <label bindtap='clicks' wx:for="{{styleList}}" wx:for-index="index" data-index="{{index}}" class='{{item.checked?"is_checked":""}}'>
+            <checkbox value="{{item.name}}" data-val="{{item.name}}" hidden='false' checked='{{item.checked}}' /> {{item.name}}
+          </label>
+        </checkbox-group>
+        </view>  
+</view>
+<view style="height:100rpx"></view>
+  <button style="width:100vw" class="btn" form-type="submit"  >
+    发布作品
+  </button>
+  </form>

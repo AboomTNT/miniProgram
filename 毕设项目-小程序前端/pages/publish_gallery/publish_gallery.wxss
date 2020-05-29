@@ -1,0 +1,7 @@
+/* pages/publish_gallery/publish_gallery.wxss */
+
+@import "../publish_appointment/publish_appointment.wxss";
+switch {
+    position: absolute;
+    right: 10rpx;
+}

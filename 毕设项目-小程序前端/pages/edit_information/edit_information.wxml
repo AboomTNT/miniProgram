@@ -1,0 +1,103 @@
+<!--pages/edit_information/edit_information.wxml-->
+<view class="row" bindtap="chooseImage">
+    <view>
+       头像 
+    </view>
+    <image class="header value" src="{{avater}}" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<form bindsubmit="formSubmit">
+<view class="row">
+    <view>
+       昵称 
+    </view>
+    <view class="value">
+        <input  name="name"value="{{name}}" type="text"  maxlength="100" style="text-align:right">
+            
+        </input>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="row">
+    <view>
+       性别 
+    </view>
+    <view class="value">
+        <picker  name="gender" bindchange="changeGender"  value="{{gender}}" range="{{genderList}}">
+    <view class="tui-picker-detail">{{gender}}</view>
+  </picker>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="row">
+    <view>
+       生日 
+    </view>
+    <view class="value">
+        <picker  name="birthday" mode="date" start="2002-01-01" end="" range-key="" value="{{birthday}}" bindchange="changeDate" >
+            <view class="tui-picker-detail">{{birthday}}</view>
+        </picker>
+          
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="row">
+    <view>
+       地区 
+    </view>
+    <view class="value">
+        <picker name="address" bindchange="changeRegin" mode = "region" value="{{region}}">
+      <view class="tui-picker-detail">{{address}}</view>
+    </picker>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="row">
+    <view>
+       身份 
+    </view>
+    <view class="value">
+        <picker  name="identity" bindchange="changeIdentity"  value="{{identity}}" range="{{identityList}}">
+    <view class="tui-picker-detail">{{identity}}</view>
+  </picker>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="title" style="padding:10rpx">
+    联系方式
+</view>
+<view class="row">
+    <view>
+       手机号 
+    </view>
+    <view class="value">
+        <input name="phone" value="{{phone}}" type="text"  maxlength="100" style="text-align:right">
+            
+        </input>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="row">
+    <view>
+       微信号 
+    </view>
+    <view class="value">
+        <input  name="wx" value="{{wx}}" type="text"  maxlength="100" style="text-align:right">
+            
+        </input>
+    </view>
+    <image class="icon" src="../../icons/箭头.png" mode="widthFix"/>   
+</view>
+<view class="title"  style="padding:10rpx">
+    自我简介
+</view>
+<textarea name="describe" class="" placeholder="请填写自我简介" value="{{describe}}">
+    
+</textarea>
+<view style="height:100rpx"></view>
+<button style="width:750rpx" form-type="submit" >
+    保存
+</button>
+</form>
+  
+  

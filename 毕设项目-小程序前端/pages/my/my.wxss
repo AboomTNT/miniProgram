@@ -1,0 +1,78 @@
+/* pages/my/my.wxss */
+
+page {
+    background-color: whitesmoke;
+}
+
+.header {
+    text-align: center;
+    background-color: var(--themecolor);
+    padding: 10px;
+}
+
+.name {
+    color: white;
+    font-size: 32rpx;
+}
+
+.headerIcon {
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50rpx;
+    border: 1rpx;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+
+.fans {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: white;
+    justify-content: space-around;
+}
+
+.fans_content view {
+    width: 50rpx;
+    text-align: center;
+}
+
+.my {
+    display: flex;
+    font-size: 24rpx;
+}
+
+.my_content {
+    background-color: #fff;
+    width: 370rpx;
+    padding: 10rpx;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+}
+
+.icon {
+    width: 40rpx;
+    margin-right: 20rpx;
+}
+
+.footer {
+    margin-top: 5rpx;
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10rpx;
+}
+
+.footer_icon {
+    width: 40rpx;
+    margin-right: 10rpx;
+}
+
+.footer text {
+    font-size: 24rpx;
+}

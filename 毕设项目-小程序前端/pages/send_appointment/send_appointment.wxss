@@ -1,0 +1,36 @@
+/* pages/send_appointment/send_appointment.wxss */
+
+@import "../specific_content/specific_content.wxss";
+.name_and_gender{
+  display: flex;
+  justify-content: start;
+}
+.writer_identity text {
+    margin-right: 20rpx;
+}
+
+.piece {
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.reason {
+    font-size: 26rpx;
+    padding: 10rpx;
+    background-color: whitesmoke;
+}
+
+.from {
+    margin: 10rpx;
+    font-size: 24rpx;
+    padding: 10rpx;
+    background-color: whitesmoke;
+}
+
+.footer {
+    padding: 10rpx;
+    color: gray;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: space-between;
+}

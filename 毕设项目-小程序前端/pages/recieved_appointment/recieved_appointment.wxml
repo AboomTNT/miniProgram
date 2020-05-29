@@ -1,0 +1,29 @@
+<!--pages/received_appointment/recieved_appointment.wxml-->
+<view wx:for="{{appointmentsList}}" wx:key="id" class="piece" bindtap="toSpecificAppointment" data-appointment="{{item}}">
+    <view class="message_header">
+        <view class="header_icon" bindtap="toUserIndex">
+        <image src="http://localhost:8080/miniprogram/images/{{item.userAvater}}" mode="aspectFill"></image>
+        </view> 
+        <view class="message">
+          <view class="name_and_gender">
+            <view class="name"><text>{{item.userName}}</text></view>
+            <view class="gender_icon"> 
+                 <image wx:if="{{item.userGender==='女'}}" src="../../icons/性别女.png" mode='heightFix'/>
+                 <image wx:else src="../../icons/性别男.png" mode='heightFix'/>
+            </view>
+          </view>
+          <view class="writer_identity"><text>{{item.userIdentity}}</text> <text>{{item.userAddress}}</text></view> 
+       </view>  
+      </view>
+      <view class="reason">
+        {{item.appointmentReason}}
+      </view>
+      <view class="footer">
+        <view class="time">
+        {{item.appointmentTime}}
+        </view>
+         <view class="status" wx:if="{{item.appointmentAgree==0}}">未处理</view>
+         <view class="status" wx:elif="{{item.appointmentAgree==1}}">已同意</view>
+         <view class="status" wx:else>已拒绝</view>
+      </view>
+</view>

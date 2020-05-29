@@ -1,0 +1,23 @@
+<!--pages/publish/publish.wxml-->
+<view class="publish" bindtap="toPubulishAppointment">
+    <image class="publish_icon1" src="../../icons/xiangji.png" mode="widthFix"/>
+    <view class="publish_right">
+        <view class="publish_title">
+        发布约拍
+        </view>
+        <view class="publish_description">
+        您可以发布约拍需求，约拍摄影师、约拍模特
+        </view>
+    </view>
+</view>
+<view class="publish"  bindtap="toPublishGallery">
+    <image class="publish_icon2" src="../../icons/项目.png" mode="widthFix"/>
+    <view class="publish_right">
+        <view class="publish_title">
+            发布作品
+        </view>
+        <view class="publish_description">
+            您可以上传自己的作品或照片，来提高自己的约拍吸引力
+        </view>
+    </view>
+</view>

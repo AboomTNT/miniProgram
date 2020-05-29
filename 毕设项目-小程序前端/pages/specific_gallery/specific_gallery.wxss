@@ -1,0 +1,2 @@
+/* pages/specific_gallery/specific_gallery.wxss */
+@import "../specific_content/specific_content.wxss";

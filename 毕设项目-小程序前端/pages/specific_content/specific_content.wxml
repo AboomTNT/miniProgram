@@ -1,0 +1,71 @@
+<!--pages/specific_content/specific_content.wxml-->
+<!--作者信息部分-->
+      <view class="message_header">
+        <view class="header_icon" bindtap="toUserIndex"><image src="http://localhost:8080/miniprogram/images/{{dynamic.userAvater}}" mode="aspectFill"></image></view> 
+        <view class="message">
+          <view class="name_and_gender">
+            <view class="name"><text>{{dynamic.userName}}</text></view>
+            <view wx:if="{{dynamic.dynamicGender=='女'}}" class="gender_icon"><image src="../../icons/性别女.png" mode='heightFix'/></view>
+            <view wx:else class="gender_icon"><image src="../../icons/性别男.png" mode='heightFix'/></view>
+          </view>
+          <view class="writer_identity"><text>{{dynamic.userIdentity}}</text></view> 
+          </view>
+          
+       </view>  
+
+    <!-- 意向部分 -->
+    <view class="intention">
+      <view class="icon_and_text">
+        <view class="icon"><image  src="../../icons/地址.png" mode="heightFix" /></view>
+        <view class="text"><text>面向{{dynamic.dynamicArea[1]}}</text></view>
+      </view>
+      <view class="icon_and_text">
+        <view class="icon"><image src="../../icons/相机.png" mode="heightFix" /></view>
+        <view class="text"><text>约{{dynamic.dynamicWho}}</text></view>
+      </view>
+      <view class="icon_and_text">
+        <view class="icon"><image  src="../../icons/人民币.png" mode="heightFix" /></view>
+        <view class="text"><text>{{dynamic.dynamicMoney}}</text></view>
+      </view>
+    </view>
+
+    <!--内容部分-->
+    <view class="specific_content">
+      <view  class="content_text">
+        <text>{{dynamic.dynamicRequire}}</text>
+      </view>
+      <view  wx:if="{{dynamicDate!=''}}" class="content_text">
+        <text>时间：{{dynamic.dynamicDate}}</text>
+      </view>
+      <view wx:if="{{dynamicFinish!=''}}" class="content_text">
+        <text>成片：{{dynamic.dynamicFinish}}</text>
+      </view>
+      <view wx:if="{{dynamicAddress!=''}}" class="content_text">
+        <text>地点：{{dynamic.dynamicAddress}}</text>
+      </view>
+      <view class="specific_content_image">
+        <image  wx:for="{{dynamic.dynamicImg}}" wx:key="index" src="http://localhost:8080/miniprogram/images/{{item}}" mode="widthFix" />
+      </view>
+      <!--时间-->
+      <view class="time_and_readers">
+        <text>{{dynamic.dynamicTime}}</text>
+      </view>
+      <view class="lables">
+            <view wx:for="{{dynamic.dynamicStyle}}"><text>{{item}}</text></view>
+        </view>
+    </view>
+    <view style="height:120rpx;background-color:#fff" >
+      
+    </view>
+      
+    <!--底部固定部分-->
+    <view class="static_footer">
+      <view class="static_footer_left" bindtap='toIndex'>
+        <image src="../../icons/首页.png" mode="heightFix"></image>
+        <view class="footer_text">首页</view>
+      </view>
+      <view class="appoitment" bindtap="toAppointment">约拍ta</view>
+    </view>
+      
+      
+      

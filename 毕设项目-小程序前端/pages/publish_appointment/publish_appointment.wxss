@@ -1,0 +1,174 @@
+/* pages/publish_appointment/publish_appointment.wxss */
+
+page {
+    background-color: whitesmoke;
+}
+
+.titleBar {
+    margin-top: 20rpx;
+    background-color: #fff;
+    height: 80rpx;
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon {
+    width: 30rpx;
+}
+
+.title,
+.content {
+    margin: 0 10rpx;
+}
+
+.appointment_des {
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 5rpx;
+}
+
+.upload_pho {
+    background-color: #fff;
+    margin-top: 5rpx;
+    padding-top: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+}
+
+.upload_pho_icon {
+    border-style: dotted;
+    border-color: gray;
+    width: 160rpx;
+    height: 160rpx;
+    margin-left: 20rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.upload_pho_icon image {
+    width: 50%;
+}
+
+.upload_pho_text {
+    font-size: 24rpx;
+    color: gray;
+}
+
+
+/*已选择的图片*/
+
+.upload_pho .upFile {
+    width: 160rpx;
+    height: 160rpx;
+    position: relative;
+    /* padding: 0rpx 7rpx; */
+    margin-left: 20rpx;
+    margin-bottom: 20rpx;
+    border: 1px solid #c0ccda;
+}
+
+.upload_pho .upFile .itemImv {
+    width: 160rpx;
+    height: 160rpx;
+    /* padding: 0rpx 7rpx; */
+}
+
+.upload_pho .upFile .closeImv {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.arrow {
+    position: absolute;
+    right: 0;
+}
+
+.styleList {
+    background-color: #fff;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10rpx;
+}
+/* 
+.lables,
+.newlables {
+    width: 100rpx;
+    text-align: center;
+    border-style: solid;
+    border-width: 1rpx;
+    border-radius: 30rpx;
+    padding: 10rpx;
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    margin-bottom: 10rpx;
+} */
+label{
+  border:1rpx solid gray;
+  color: gray;
+}
+.style{
+  display:flex;
+  flex-wrap:wrap;
+}
+.style label {
+  width: 100rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  margin: 0 5rpx;
+  justify-content: center;
+   margin-left: 10rpx;
+    margin-bottom: 10rpx;
+    padding: 10rpx;
+    font-size: 24rpx;
+}
+
+.is_checked {
+   color: var(--themecolor);
+   border: 1rpx solid var(--themecolor);
+}
+.is_checked>checkbox {
+  color: red;
+}
+/* .lables {
+    color: gray;
+    border-color: gray;
+}
+
+.newlables {
+    color: var(--themecolor);
+    border-color: var(--themecolor);
+} */
+
+.btn {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: var(--themecolor);
+    color: white;
+    font-size: 32rpx;
+}
+
+.cho_apointment_identity {
+    display: flex;
+    justify-content: start;
+    padding: 10rpx;
+    background-color: #fff;
+    align-items: center;
+}
+
+.radio {
+    margin: 0 10rpx;
+}

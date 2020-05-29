@@ -1,0 +1,35 @@
+/* pages/publish/publish.wxss */
+
+.publish {
+    height: 250rpx;
+    padding-top: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.publish_icon1,
+.publish_icon2 {
+    width: 150rpx;
+}
+
+.publish_icon2 {
+    margin-left: 50rpx;
+}
+
+.publish_right {
+    height: 100%;
+}
+
+.publish_title {
+    padding: 10rpx;
+    font-size: 28rpx;
+    color: var(--themecolor);
+}
+
+.publish_description {
+    padding: 10px;
+    font-size: 24rpx;
+    color: grey;
+}

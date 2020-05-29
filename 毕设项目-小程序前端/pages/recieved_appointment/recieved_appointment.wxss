@@ -1,0 +1,3 @@
+/* pages/received_appointment/recieved_appointment.wxss */
+
+@import "../send_appointment/send_appointment.wxss";

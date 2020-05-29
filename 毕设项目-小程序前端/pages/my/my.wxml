@@ -1,0 +1,47 @@
+<!--pages/my/my.wxml-->
+<view class="header">
+        <image class="headerIcon" src="http://localhost:8080/miniprogram/images/{{user.userAvater}}" mode="aspectFill" />
+    <view class="name">
+            {{user.userName}}
+     </view>
+    <view class="fans">
+        <view class="fans_content">
+            <view>
+                {{follow}}
+            </view>
+            <view>
+                关注
+            </view>
+        </view>
+        <view class="fans_content">
+            <view>
+                {{followed}}
+            </view>
+            <view>
+                粉丝
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="my">
+    <view class="my_content" bindtap="toEditInformation">
+    <image class="icon" src="../../icons/info-solid.png" mode="widthFix"/>
+    <text class="txt" selectable="false" space="false" decode="false">编辑资料</text>
+    </view>
+    <view class="my_content" bindtap="toUserIndex">
+    <image class="icon" src="../../icons/home-solid.png" mode="widthFix"/>
+    <text class="txt" selectable="false" space="false" decode="false">个人主页</text>
+    </view>
+</view>
+
+<view height="20rpx">
+</view>
+<view class="footer">
+    <image class="footer_icon" src="../../icons/question-solid.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+    <text>帮助中心</text>  
+</view>
+<view class="footer">
+    <image class="footer_icon" src="../../icons/info-solid.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+    <text>关于我们</text>  
+</view> 

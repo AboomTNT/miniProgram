@@ -1,0 +1,17 @@
+<!--pages/messages/messages.wxml-->
+<view class="recieved_and_sended" bindtap="toRecieveAppointment">
+     <view class="recieved_and_sended_left">
+         <image  src="../../icons/收到的.png" mode="heightFix"/>
+         <text>收到的约拍请求</text>
+    </view>
+    <image src="../../icons/箭头.png" mode="heightFix"/>
+</view>
+<view class="recieved_and_sended" bindtap="toSendAppointment">
+     <view class="recieved_and_sended_left">
+        <image  src="../../icons/发起.png" mode="heightFix"/>
+        <text>发起的约拍请求</text>
+     </view>
+    <image src="../../icons/箭头.png" mode="heightFix"/> 
+</view>
+
+  

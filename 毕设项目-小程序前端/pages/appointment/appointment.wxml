@@ -1,0 +1,51 @@
+<!--pages/appointment/appointment.wxml-->
+<!--作者信息部分-->
+       <view class="message_header">
+        <view class="header_icon" bindtap="toUserIndex"><image src="http://localhost:8080/miniprogram/images/{{dynamic.userAvater}}" mode="aspectFill"></image></view> 
+        <view class="message">
+          <view class="name_and_gender">
+            <view class="name"><text>{{dynamic.userName}}</text></view>
+            <view wx:if="{{dynamic.dynamicGender=='女'}}" class="gender_icon"><image src="../../icons/性别女.png" mode='heightFix'/></view>
+            <view wx:else class="gender_icon"><image src="../../icons/性别男.png" mode='heightFix'/></view>
+          </view>
+          <view class="writer_identity"><text>{{dynamic.userIdentity}}</text></view> 
+          </view>
+          
+       </view>  
+       <form bindsubmit="formSubmit">
+      <view class="input_reason">
+          <textarea placeholder='请输入约拍理由' name="reason"></textarea>
+      </view>
+
+    <!--联系方式标题-->
+      <view class="associated_header">
+        <view class="associated_header_left">
+        <image class="associated_icon" src="../../icons/xiaoxi.png" mode="heightFix" />
+       <text>我的联系方式</text>
+       </view>
+        <image class="associated_icon" src="../../icons/M-bianji.png" mode="heightFix" />
+      </view>
+
+      <!--联系方式-->
+      <view class="associated_content">
+        <view>
+             <text>手机号</text>
+             <input name="phone" value="{{phone}}"></input>
+        </view>
+        <view>
+             <text>微信号</text>
+              <input name="wx" value="{{wx}}"></input>
+        </view>
+      </view>
+
+      <!--提交按钮-->
+        <button style="width:100vw" form-type="submit" >
+            提交约拍请求
+        </button>
+      </form>
+
+
+        
+
+        
+        

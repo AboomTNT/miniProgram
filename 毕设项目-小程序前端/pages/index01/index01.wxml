@@ -1,0 +1,117 @@
+<!--pages/index01/index01.wxml-->
+<swiper autoplay interval="3000" circular indicator-dots>
+    <swiper-item>
+        <image mode="widthFix" src="http://localhost:8080/miniprogram/images/swipper1.jpg"/>
+    </swiper-item>
+    <swiper-item>
+        <image mode="widthFix" src="http://localhost:8080/miniprogram/images/swipper2.jpg"/>
+    </swiper-item>
+    <swiper-item>
+        <image mode="widthFix" src="http://localhost:8080/miniprogram/images/swipper3.jpg"/>
+    </swiper-item>
+</swiper>
+<!-- 筛选模块 -->
+<view class="choose-content">
+
+    <!-- 地区选择 -->
+  <view class="tui-picker-content" >
+    <picker bindchange="changeRegin" mode = "region" value="{{region}}">
+      <view class="tui-picker-detail">{{address}}</view>
+    </picker>
+  <view class="pull_icon"><image src="http://localhost:8080/miniprogram/images/pull.png" mode="heightFix"></image></view>
+  </view>
+
+    <!-- 身份选择 -->
+  <view class="tui-picker-content">
+  <picker bindchange="changeIdentity"  value="{{identityIndex}}" range="{{identityList}}">
+    <view class="tui-picker-detail">{{identity}}</view>
+  </picker>
+  <view class="pull_icon"><image src="http://localhost:8080/miniprogram/images/pull.png" mode="heightFix"></image></view>
+  </view>
+
+   <!-- 性别选择 -->
+    <view class="tui-picker-content">
+  <picker bindchange="changeGender"  value="{{genderIndex}}" range="{{genderList}}">
+    <view class="tui-picker-detail">{{gender}}</view>
+  </picker>
+  <view class="pull_icon"><image src="http://localhost:8080/miniprogram/images/pull.png" mode="heightFix"></image></view>
+  </view>
+
+  <!-- 风格选择 -->
+    <view class="tui-picker-content">
+  <picker bindchange="changeStyle"  value="{{styleIndex}}" range="{{styleList}}">
+    <view class="tui-picker-detail">{{style}}</view>
+  </picker>
+  <view class="pull_icon"><image src="http://localhost:8080/miniprogram/images/pull.png" mode="heightFix"></image></view>
+  </view>
+
+</view>
+<!-- 分割线 -->
+<view class="divLine"></view>
+<!--约拍信息-->
+<!-- <navigator 
+
+url="../../pages/specific_content/specific_content?dynamic={{item}}"> -->
+    <view class="index_message" wx:for="{{dynamicsList}}" 
+wx:key="labelNameClick"  bindtap="toSpecificContent" data-dynamic="{{item}}">
+      <!--作者信息部分-->
+      <view class="index_message_header" >
+        <view class="writer_left">
+            <view class="header_icon" bindtap="toUserIndex" data-user="{{item}}">
+            <image src="{{url+'/'+item.userAvater}}" mode="aspectFill"></image>
+            </view> 
+            <view class="writer_message">
+              <view class="name_and_gender">
+                <view class="name"><text>{{item.userName}}</text></view>
+                 <view class="gender_icon">
+                 <image wx:if="{{item.dynamicGender==='女'}}" src="../../icons/性别女.png" mode='heightFix'/>
+                 <image wx:else src="../../icons/性别男.png" mode='heightFix'/>
+                 </view>
+           
+              </view>
+            <view class="writer_identity"><text>{{item.userIdentity}}</text></view> 
+          </view>  
+        </view>
+        <view  class="address">
+          <view class="address_icon">
+            <image  src="../../icons/地点.png" mode="heightFix"/>
+          </view>
+          <view class="address_text">
+            <text>{{item.dynamicArea[1]}}</text>
+          </view>
+        </view>
+      </view>
+      <!--内容部分-->
+      <view>
+        <view class="title">
+          <text>约{{item.dynamicWho}}</text>
+        </view>
+
+        <view class="content">
+          <text>{{item.dynamicRequire}}</text>
+        </view>
+        <view class="content_image" >
+          <image wx:for="{{item.dynamicImg}}"  wx:for-item="item1" mode="aspectFill" wx:key="index" wx:if="{{url+'/'+item1}}" src="{{url+'/'+item1}}" />
+        </view>
+
+        <view class="footer">
+          <view class="footer_left">
+            <text>{{item.dynamicTime}}</text>
+            
+          </view>
+          <view class="footer_right">
+           <text>收到的约拍{{" "+item.dynamicNum}}</text>
+          </view>
+        </view>
+        <view class="lables">
+            <view wx:for="{{item.dynamicStyle}}" wx:for-item="item1"><text>{{item1}}</text></view>
+        </view>
+      </view>
+  
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+    </view>
+<!-- </navigator> -->
+    
+    
+  

@@ -1,0 +1,57 @@
+/* pages/appointment/appointment.wxss */
+
+@import "../../pages/specific_content/specific_content.wxss";
+.input_reason {
+    margin-top: 10rpx;
+    background-color: #fff;
+    padding: 10rpx;
+}
+
+.associated_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    padding: 10rpx;
+    background-color: #fff;
+}
+
+.associated_header_left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.associated_icon {
+    height: 50%;
+}
+
+.associated_content {
+    background-color: #fff;
+    margin-top: 5rpx;
+    padding: 20rpx;
+}
+.associated_content view{
+ 
+  margin: 10rpx;
+}
+.associated_content text {
+    font-size: 26rpx;
+}
+
+.button_submit {
+    background-color: var(--themecolor);
+    height: 80rpx;
+    color: white;
+    text-align: center;
+}
+
+button {
+    background-color: var(--themecolor);
+    color: white;
+    width: 750rpx;
+    position: fixed;
+    bottom: 0;
+}
