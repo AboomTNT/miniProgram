@@ -1,0 +1,21 @@
+/*********************************************
+ * index CSS
+ *
+ * @author Thunisoft
+ * @date 2020-07-24
+ *********************************************/
+.fd-header {
+    background: #383838;
+}
+.fd-title {
+    color: #fffef2;
+}
+.aty-button{
+    float: left;
+    min-width: 54px;
+    max-width: 250px;
+    display: block;
+    margin: 0.3em;
+    padding: 0.4em 1em;
+}
+

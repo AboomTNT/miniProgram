@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+  <head>
+    <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.PageNavigationSystem.controller.LjxxController.java" th:remove="all">
+    <meta type="aty-meta" name="cssLocation" content="css/index.css" th:remove="all"> 
+    <meta type="aty-meta" name="jsLocation" content="js/index.js" th:remove="all">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+    <link rel="stylesheet" aty:import>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <title>PageNavigationSystem</title>
+    <base th:href="@{/}" />
+  </head>
+  <body>
+    <div id="app" style="height:100%;width:100%" v-cloak>
+        <aty-region-layout height="100%">
+            <aty-region-north :height="40" class="fd-header">
+                <div class="aty-region-layout border">
+                    <h1 align="center" class="fd-title">页面导航系统</h1>
+                </div>
+            </aty-region-north>
+            <aty-region-west :width="200" class="west1">
+                <aty-button @click="addSystem" text="添加系统" style="width: 100%" ></aty-button>
+            </aty-region-west>
+            <aty-region-center>
+                <aty-panel has-border height="100%">
+                    <aty-table border @load-data="loadData" :pageable-data="rs1" ref="ljxxForm">
+                        <aty-table-column label="地区" prop="ssdq" align="center" filter-type="number" code-type="10002"
+                                          :filter-multiple="false">
+                        </aty-table-column>
+                        <aty-table-column label="名称" align="center" prop="xtmc" filter-type="string"></aty-table-column>
+                        <aty-table-column label="路径" align="center" >
+                            <template slot-scope="prop">
+                                <aty-link :href="prop.row.xtdz" :text="prop.row.xtdz"></aty-link>
+                            </template>
+                        </aty-table-column>
+                        <aty-table-column label="备注" align="center" prop="xtsm"></aty-table-column>
+                        <aty-table-column label="操作" align="center">
+                            <template slot-scope="props">
+                                <aty-button text="查看" @click="viewPage(props.row)"></aty-button>
+                                <aty-button text="编辑" @click="editPage(props.row)"></aty-button>
+                                <aty-button text="删除" @click="del(props.row.bh)"></aty-button>
+                            </template>
+                        </aty-table-column>
+                    </aty-table>
+                </aty-panel>
+            </aty-region-center>
+        </aty-region-layout>
+    </div>
+  </body>
+  <script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+  <script type="text/javascript" aty:import></script>
+  <script type="text/javascript" th:src="@{/js/index.js}"></script>
+  <script type="text/javascript" th:src="@{/js/demo.js}"></script>
+</html>

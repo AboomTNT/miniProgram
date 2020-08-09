@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.thunisoft.demo</groupId>
+	<artifactId>PageNavigationSystem</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>PageNavigationSystem</name>
+	<description></description>
+
+	<properties>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<!-- MyBatis -->
+		<spring-boot-starter-mybatis-mapper.version>1.1.5</spring-boot-starter-mybatis-mapper.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.dilu.component</groupId>
+			<artifactId>monitor</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-code-starter</artifactId>
+		</dependency>
+
+		<!-- artery组件登录 -->
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-login-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.persistence</groupId>
+					<artifactId>persistence-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-webSecurity-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.arterybase</groupId>
+			<artifactId>ArteryBase</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<!-- TAP -->
+		<dependency>
+			<groupId>com.thunisoft.tap</groupId>
+			<artifactId>artery-uim-sdk-starter</artifactId>
+			<version>tap-2.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.summer-cmpt</groupId>
+			<artifactId>uim-authority-model</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.9</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+		<!-- sqlfx -->
+		<dependency>
+			<groupId>com.thunisoft.sqlfx</groupId>
+			<artifactId>sqlfx-client-spring-boot-starter</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<!-- swagger -->
+		<dependency>
+			<groupId>com.spring4all</groupId>
+			<artifactId>swagger-spring-boot-starter</artifactId>
+			<version>1.9.1.RELEASE</version>
+		</dependency>
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+		</dependency>
+        <!-- 表增量记录、自动填充公共字段 -->
+        <!--<dependency>-->
+            <!--<groupId>com.thunisoft.dilu.component</groupId>-->
+            <!--<artifactId>dilu-table-increment</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+		<dependency>
+			<groupId>com.thunisoft.tap</groupId>
+			<artifactId>appconfig-spring-boot-starter</artifactId>
+			<version>tap-3.3.1.1</version>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.thunisoft.artery</groupId>
+				<artifactId>artery-parent</artifactId>
+				<version>6.1.4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/webapp</directory>
+				<targetPath>META-INF/resources</targetPath>
+				<includes>
+					<include>**/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>.gitkeep</exclude>
+				</excludes>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId> org.apache.maven.plugins </groupId>
+				<artifactId> maven-surefire-plugin </artifactId>
+				<configuration>
+					<skipTests> true </skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--<version>2.2.6.RELEASE</version>-->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<!-- Docker maven plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<imageName>${project.artifactId}:latest</imageName>
+					<dockerDirectory></dockerDirectory>
+					<dockerHost>http://127.0.0.1:2375</dockerHost>
+					<!-- <dockerCertPath>src/main/docker/cert</dockerCertPath> -->
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			<!-- Docker maven plugin -->
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>public-repo</id>
+			<url>http://repo.thunisoft.com/maven2/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>public-snapshots</id>
+			<url>http://repo.thunisoft.com/maven2/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

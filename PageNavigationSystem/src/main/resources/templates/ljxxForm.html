@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+  <head>
+    <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.PageNavigationSystem.controller.LjxxFormController.java" th:remove="all">
+    <meta type="aty-meta" name="cssLocation" content="css/ljxxForm.css" th:remove="all"> 
+    <meta type="aty-meta" name="jsLocation" content="js/ljxxForm.js" th:remove="all">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+    <link rel="stylesheet" aty:import>
+    <link rel="stylesheet" th:href="@{/css/ljxxForm.css}" />
+    <title>PageNavigationSystem</title>
+    <base th:href="@{/}" />
+  </head>
+  <body>
+  <div id="app" style="height:100%;width:100%" v-cloak>
+    <aty-panel >
+      <aty-form ref="addForm" :data="formData">
+        <aty-row>
+          <aty-col>
+            <aty-select label="所属地区" style="width: 242px" code-type="10002" v-model="formData.ssdq"></aty-select>
+          </aty-col>
+          <aty-col>
+            <aty-select label="环境标识" style="width: 242px" code-type="10001" v-model="formData.hjbs"></aty-select>
+          </aty-col>
+        </aty-row>
+        <aty-row>
+          <aty-col>
+            <aty-input label="系统名称" v-model="formData.xtmc"></aty-input>
+          </aty-col>
+          <aty-col>
+            <aty-input label="系统地址" v-model="formData.xtdz"></aty-input>
+          </aty-col>
+        </aty-row>
+        <aty-row>
+          <aty-col>
+            <aty-input label="系统说明" v-model="formData.xtsm"></aty-input>
+          </aty-col>
+        </aty-row>
+      </aty-form>
+    </aty-panel>
+  </div>
+  </body>
+  <script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+  <script type="text/javascript" aty:import></script>
+  <script type="text/javascript" th:inline="javascript">
+    var formData = /*[[${formData}]]*/
+  </script>
+  <script type="text/javascript" th:src="@{/js/ljxxForm.js}">
+
+  </script>
+</html>

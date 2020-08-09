@@ -1,0 +1,76 @@
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 #日期序列化走北京时间
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+  main.allow-bean-definition-overriding: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: 8081
+#    session:
+#      cookie:
+#        http-only: true
+#        secure: true
+#      timeout: 30m
+#  tomcat: # 以下配置均为tomcat9.x的默认值
+#    max-threads: 200
+#    min-spare-threads: 10
+#    max-connections: 10000
+#    accept-count: 100
+jdbc.analyze: 
+#QLFX-CLIENT 是否打开，false则不分析SQL日志
+  client.isopen: false
+  server: 
+  #SQLFX-SERVER 的IP地址，例如北京：172.16.11.22
+    ip: 172.25.16.107
+    #请求服务端方式：rmi
+    mode: rmi
+    #服务端http访问端口
+    port: 9999
+    #服务端rmi服务发布端口
+    rmi.port: 10999
+    #本应用的环境标识：dev|test|stable|performance|produce。
+   #分别代表:开发环境、测试环境、稳定环境、性能环境、生产环境
+  environment.flag: dev
+  project: 
+  #本项目的项目编号
+    number: xmbh
+    #本项目的项目代码，例如:TAP-appconfig
+    code: PageNavigationSystem
+    #本项目的项目名称,例如:北研-平台开发部-TAP配置中心
+    name: PageNavigationSystem
+    #本项目的版本号，如：V2.1.0
+    version: 1.0.0
+    #本项目的架构师
+    architect: 
+    #本项目的研发经理
+    manager: 
+    yandao:
+      number: ydbh
+      name: ydname
+  system: 
+  #本项目的系统代码，例如:TAP-appconfig
+    code: PageNavigationSystem
+    #本项目系统名称，例如:TAP配置中心
+    name: PageNavigationSystem
+  database: 
+  #本项目使用的数据库类型
+    type: 
+    #本项目使用的数据库版本
+    version: 
+    #SQLFX报告接收人的邮箱，多个邮箱用英文逗号隔开，如:xxx@thunisoft.com,xx@thunisoftcom
+  mail.receive: 
+  #tap地址
+  tapurl: 
+  #法院代码
+  corp: 

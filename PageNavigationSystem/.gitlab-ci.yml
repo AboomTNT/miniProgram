@@ -1,0 +1,26 @@
+stages:
+  - sonar
+  
+variables:
+  SONAR_URL: "http://sonar.thunisoft.com"
+  SONAR_LOGIN_TOKEN: "1193ca99634421e6656f2444de264d65ec9988e9"
+
+#master分支
+sonarqube_master_job:
+  stage: sonar
+  tags:
+    - maven
+  only:
+    - master
+  script:
+    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN_TOKEN -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME
+
+#非master分支
+sonarqube_preview_feature_job:
+  stage: sonar
+  except:
+    - master
+  tags:
+    - maven
+  script:
+    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN_TOKEN -Dsonar.analysis.mode=preview -Dsonar.gitlab.max_major_issues_gate=0 -Dsonar.gitlab.max_minor_issues_gate=0 -Dsonar.gitlab.max_info_issues_gate=0 -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME

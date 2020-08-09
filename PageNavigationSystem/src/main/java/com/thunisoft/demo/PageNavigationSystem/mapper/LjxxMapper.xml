@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thunisoft.demo.PageNavigationSystem.mapper.LjxxMapper">
+    <!-- 定义基础返回集合 -->
+    <resultMap id="BaseResultMap" type="com.thunisoft.demo.PageNavigationSystem.model.Ljxx">
+        <result column="C_BH" jdbcType="CHAR" property="bh" />
+        <result column="C_XTMC" jdbcType="VARCHAR" property="xtmc" />
+        <result column="C_XTDZ" jdbcType="VARCHAR" property="xtdz" />
+        <result column="C_XTSM" jdbcType="VARCHAR" property="xtsm" />
+        <result column="N_HJBS" jdbcType="INTEGER" property="hjbs" />
+        <result column="N_SSDQ" jdbcType="INTEGER" property="ssdq" />
+        <result column="N_ZHXGFS" jdbcType="INTEGER" property="zhxgfs" />
+        <result column="C_CJR" jdbcType="VARCHAR" property="cjr" />
+        <result column="C_ZHXGR" jdbcType="VARCHAR" property="zhxgr" />
+        <result column="DT_CJSJ" jdbcType="TIMESTAMP" property="cjsj" />
+        <result column="DT_ZHXGSJ" jdbcType="TIMESTAMP" property="zhxgsj" />
+    </resultMap>
+    
+    <!-- 基本字段定义 -->
+    <sql id="Base_Column_List" >
+        C_BH,C_XTMC,C_XTDZ,C_XTSM,N_HJBS,N_SSDQ,N_ZHXGFS,C_CJR,C_ZHXGR,DT_CJSJ,DT_ZHXGSJ
+    </sql>
+ 
+</mapper>
